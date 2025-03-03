@@ -3,9 +3,6 @@ import type { FrontendSettings } from '@n8n/api-types';
 import { computed, onMounted, useCssModule, useTemplateRef } from 'vue';
 import { useFavicon } from '@vueuse/core';
 
-import LogoIcon from './logo-icon.svg';
-import LogoText from './logo-text.svg';
-
 const props = defineProps<
 	(
 		| {
@@ -63,11 +60,7 @@ onMounted(() => {
 
 <template>
 	<div :class="containerClasses" data-test-id="n8n-logo">
-		<LogoIcon :class="$style.logo" ref="logo" />
-		<LogoText v-if="showLogoText" :class="$style.logoText" />
-		<div v-if="showReleaseChannelTag" size="small" round :class="$style.releaseChannelTag">
-			{{ releaseChannel }}
-		</div>
+		<div v-if="showReleaseChannelTag" size="small">CMS AI Tool</div>
 		<slot />
 	</div>
 </template>
@@ -76,13 +69,7 @@ onMounted(() => {
 .logoContainer {
 	display: flex;
 	justify-content: center;
-}
-
-.logoText {
-	margin-left: var(--spacing-5xs);
-	path {
-		fill: var(--color-text-dark);
-	}
+	margin: 0 auto;
 }
 
 .releaseChannelTag {

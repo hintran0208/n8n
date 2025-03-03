@@ -1,7 +1,7 @@
 {
   "name": "n8n",
   "version": "1.81.0",
-  "description": "n8n Workflow Automation Tool",
+  "description": "CMS AI Tool",
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "oclif": {

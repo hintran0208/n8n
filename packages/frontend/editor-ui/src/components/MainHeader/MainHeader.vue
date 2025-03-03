@@ -89,9 +89,6 @@ const readOnly = computed(() => sourceControlStore.preferences.branchReadOnly);
 const isEnterprise = computed(
 	() => settingsStore.isQueueModeEnabled && settingsStore.isWorkerViewAvailable,
 );
-const showGitHubButton = computed(
-	() => !isEnterprise.value && !settingsStore.settings.inE2ETests && !githubButtonHidden.value,
-);
 
 watch(route, (to, from) => {
 	syncTabsWithRoute(to, from);
@@ -243,25 +240,6 @@ function hideGithubButton() {
 				:model-value="activeHeaderTab"
 				@update:model-value="onTabSelected"
 			/>
-		</div>
-		<div v-if="showGitHubButton" class="github-button hidden-sm-and-down">
-			<div class="github-button-container">
-				<GithubButton
-					href="https://github.com/n8n-io/n8n"
-					:data-color-scheme="uiStore.appliedTheme"
-					data-size="large"
-					data-show-count="true"
-					aria-label="Star n8n-io/n8n on GitHub"
-				>
-					Star
-				</GithubButton>
-				<N8nIcon
-					class="close-github-button"
-					icon="times-circle"
-					size="medium"
-					@click="hideGithubButton"
-				/>
-			</div>
 		</div>
 	</div>
 </template>
